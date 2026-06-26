@@ -879,3 +879,65 @@ ul, ol {
   animation-play-state: running !important;
 }
 
+/* Marquee wrapper — clips overflow */
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  background: rgba(17, 76, 90, 0.4) !important;  /* nocturnal at 40% */
+  border-top: 1px solid rgba(255, 200, 1, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 200, 1, 0.08) !important;
+  padding: 1rem 0 !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  position: relative;
+  z-index: 10;
+}
+
+/* Inner track — double the content for seamless loop */
+.marquee-track {
+  display: flex !important;
+  width: max-content !important;
+  animation: marqueeScroll 30s linear infinite !important;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused !important;  /* pauses on hover — nice UX touch */
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Each metric item */
+.marquee-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0 2.5rem !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #D9E8E2 !important;
+  white-space: nowrap !important;
+}
+
+/* The ⬡ bullet — use a span colored forsythia */
+.marquee-bullet {
+  color: #FFC801 !important;
+  font-size: 10px !important;
+}
+
+/* Section bridge */
+.section-bridge {
+  height: 120px !important;
+  background: linear-gradient(
+    to bottom,
+    #172B36 0%,
+    #114C5A 100%
+  ) !important;
+  position: relative;
+  z-index: 10;
+}
+
+

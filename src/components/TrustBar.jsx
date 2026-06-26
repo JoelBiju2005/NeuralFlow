@@ -1,33 +1,36 @@
 import React from 'react';
 
-const COMPANIES = ['VERTEX.AI', 'SYNAPSE', 'KRAKEN DATA', 'AETHER', 'HELIOS CORE', 'QUANTUM'];
+const COMPANIES = ['Stripe', 'Notion', 'Vercel', 'Linear', 'Raycast', 'Resend'];
 
 export default function TrustBar() {
   return (
     <section
-      id="trust-bar"
-      aria-label="Trusted by companies"
-      className="py-4 relative z-10"
-      style={{ background: 'transparent' }}
+      id="trust"
+      aria-label="Trusted by leading companies"
+      className="py-6 border-t border-b border-[rgba(209,232,226,0.08)] relative z-10"
+      style={{ background: '#172B36' }}
     >
-      <div className="container flex flex-col items-center justify-center gap-6">
-        <span
-          className="text-xs font-semibold text-[#D9E8E2] opacity-40 uppercase tracking-widest text-center"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+      <div className="container flex flex-col items-center justify-center gap-4">
+        <p
+          className="text-xs font-normal text-[#D9E8E2] opacity-50 uppercase tracking-widest text-center"
+          style={{ fontFamily: "'Inter', sans-serif", letterSpacing: '0.1em' }}
         >
-          Trusted by fast-scaling technical engineering teams
-        </span>
-        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-16 mt-2">
+          Trusted by engineering teams at
+        </p>
+        <ul
+          aria-label="Company list"
+          className="flex flex-wrap items-center justify-center gap-12 mt-1"
+        >
           {COMPANIES.map((company) => (
-            <span
+            <li
               key={company}
-              className="text-sm sm:text-base font-bold text-[#D9E8E2] opacity-35 hover:opacity-85 transition-opacity duration-200 cursor-default tracking-wider"
+              className="text-[15px] font-semibold text-[#F1F6F4] opacity-35 hover:opacity-75 transition-opacity duration-200 cursor-default"
               style={{ fontFamily: "'JetBrains Mono', monospace" }}
             >
               {company}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

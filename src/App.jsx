@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
+import MarqueeSection from './components/MarqueeSection';
 import Features from './components/Features';
 import Pricing from './components/Pricing';
 import SocialProof from './components/SocialProof';
@@ -35,6 +36,7 @@ export default function App() {
 
       <main id="main-content">
         <Hero />
+        <MarqueeSection />
         <Features />
         <Pricing />
         <SocialProof />

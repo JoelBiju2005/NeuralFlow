@@ -1,5 +1,5 @@
 # NeuralFlow — Project Brain
-> Last Updated: 2026-06-26T17:46:00+05:30
+> Last Updated: 2026-06-26T17:48:00+05:30
 > This file is the single source of truth for the entire project. 
 > Any IDE, agent, or developer picking up this project must read this file first.
 
@@ -107,9 +107,14 @@
 - Scroll indicator: chevron-down.svg, pulses, fades on scroll
 
 ### TrustBar.jsx
-- Standalone component, imported after Hero in App.jsx
-- "Trusted by teams at —" + 5-6 company names, JetBrains Mono, mystic mint
-- Thin top/bottom border, background #172B36
+- Standalone component rendering the semantic company list
+- Used near testimonials at the bottom of the SocialProof section
+
+### MarqueeSection.jsx
+- Positioned between Hero and Features to fill the dead space
+- Renders the semantic TrustBar and the infinite scrolling Metric Marquee
+- Metirc Marquee is decorative (aria-hidden="true") with CSS animations, pausing on hover
+- Renders the .section-bridge gradient bridge (fades oceanic noir to nocturnal)
 
 ### Features.jsx
 - Desktop: Bento Grid (mixed card sizes col-span-7/5/4, glassmorphism surface styling, decorative watermarks, SVG sparklines, custom metrics, and rotate/pulse animations) | Mobile: Accordion (smooth height transitions)
@@ -170,3 +175,4 @@
 | 8 | 2026-06-26 | Hero.jsx, globals.css, brain.md | Swapped Hero copy, subtext, CTAs, and redesigned stats labels to use Inter 500, 12px, normal-case mystic mint |
 | 9 | 2026-06-26 | SocialProof.jsx, TrustBar.jsx, brain.md | Redesigned testimonials box layout with left-aligned yellow icon pill, added automatic testimonies rotation (5s autoplay, paused on hover), and updated technical engineering team logos |
 | 10 | 2026-06-26 | Features.jsx, featuresData.js, globals.css, brain.md | Bento Grid overhaul: replaced all content/descriptions, restructured into 3 balanced rows (eliminating empty cell), upgraded icon-pill containers, added card watermarks, and added custom spin-on-hover triggers |
+| 11 | 2026-06-26 | TrustBar.jsx, MarqueeSection.jsx, App.jsx, globals.css, brain.md | Created MarqueeSection (containing overhauled semantic TrustBar, auto-scrolling metric marquee, and section gradient bridge) to fill dead space between Hero and Features |
