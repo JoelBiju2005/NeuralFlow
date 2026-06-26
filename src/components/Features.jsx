@@ -330,7 +330,7 @@ export default function Features() {
                       padding: '4px 10px',
                     }}
                   >
-                    {badge}
+                      {badge}
                   </span>
                 ))}
               </div>
@@ -349,6 +349,14 @@ export default function Features() {
                   key={feature.id}
                   className="bento-glass-card overflow-hidden"
                   role="listitem"
+                  style={isOpen ? {
+                    borderColor: 'rgba(255, 200, 1, 0.3)',
+                    background: 'rgba(23, 43, 54, 0.8)',
+                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 200, 1, 0.05)',
+                    transition: 'all 300ms ease-out'
+                  } : {
+                    transition: 'all 300ms ease-out'
+                  }}
                 >
                   <button
                     type="button"
@@ -370,12 +378,14 @@ export default function Features() {
                     >
                       {feature.title}
                     </span>
-                    <span className="accordion-chevron text-[#D9E8E2]">
-                      {isOpen ? (
-                        <ChevronUpIcon className="w-4 h-4" />
-                      ) : (
-                        <ChevronDownIcon className="w-4 h-4" />
-                      )}
+                    <span 
+                      className="accordion-chevron text-[#D9E8E2]"
+                      style={{
+                        transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 300ms ease-out'
+                      }}
+                    >
+                      <ChevronDownIcon className="w-4 h-4" />
                     </span>
                   </button>
                   <div
@@ -384,18 +394,99 @@ export default function Features() {
                     aria-labelledby={`feature-btn-${feature.id}`}
                     className={`accordion-panel ${isOpen ? 'accordion-panel--open' : ''}`}
                     style={{
-                      maxHeight: isOpen ? '200px' : '0px',
+                      maxHeight: isOpen ? '400px' : '0px',
                       overflow: 'hidden',
-                      transition: 'max-height 300ms ease-in-out',
+                      transition: 'max-height 300ms cubic-bezier(0.4, 0, 0.2, 1), padding 300ms ease-out',
                       padding: isOpen ? '0 1.25rem 1.25rem 1.25rem' : '0 1.25rem'
                     }}
                   >
-                    <p
-                      className="text-sm leading-relaxed text-[#D9E8E2]"
-                      style={{ fontFamily: "'Inter', sans-serif", opacity: 0.85 }}
-                    >
-                      {feature.description}
-                    </p>
+                    <div className="flex flex-col gap-4">
+                      <p
+                        className="text-sm leading-relaxed text-[#D9E8E2]"
+                        style={{ fontFamily: "'Inter', sans-serif", opacity: 0.85 }}
+                      >
+                        {feature.description}
+                      </p>
+                      
+                      {/* Rich details based on feature ID */}
+                      {feature.id === 0 && (
+                        <div className="flex flex-wrap gap-4 text-[#D9E8E2] opacity-90 pt-3 border-t border-[rgba(209,232,226,0.08)]" style={{ fontFamily: "'Inter', sans-serif" }}>
+                          <div>
+                            <div style={{ fontSize: '13px', fontWeight: 600, color: '#FFC801' }}>↓ 0.8ms</div>
+                            <div style={{ fontSize: '10px', opacity: 0.7 }}>avg latency</div>
+                          </div>
+                          <div style={{ width: '1px', background: 'rgba(209,232,226,0.15)' }} />
+                          <div>
+                            <div style={{ fontSize: '13px', fontWeight: 600, color: '#FFC801' }}>99.999%</div>
+                            <div style={{ fontSize: '10px', opacity: 0.7 }}>reliability</div>
+                          </div>
+                          <div style={{ width: '1px', background: 'rgba(209,232,226,0.15)' }} />
+                          <div>
+                            <div style={{ fontSize: '13px', fontWeight: 600, color: '#FFC801' }}>10M+</div>
+                            <div style={{ fontSize: '10px', opacity: 0.7 }}>events/sec</div>
+                          </div>
+                        </div>
+                      )}
+
+                      {feature.id === 1 && (
+                        <div className="flex flex-col gap-3 pt-3 border-t border-[rgba(209,232,226,0.08)]">
+                          <ul style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '12px', color: '#D9E8E2', opacity: 0.85, listStyle: 'none', paddingLeft: 0 }}>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                              <span style={{ color: '#FF9932' }}>✦</span> AI-powered anomaly detection
+                            </li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                              <span style={{ color: '#FF9932' }}>✦</span> Natural language query interface
+                            </li>
+                          </ul>
+                          <div className="flex flex-wrap gap-1.5 mt-1">
+                            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#FFC801', background: 'rgba(255,200,1,0.15)', padding: '2px 6px', borderRadius: '4px' }}>↑ 94.2% accuracy</span>
+                            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#FFC801', background: 'rgba(255,200,1,0.15)', padding: '2px 6px', borderRadius: '4px' }}>2.3x faster</span>
+                            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#FFC801', background: 'rgba(255,200,1,0.15)', padding: '2px 6px', borderRadius: '4px' }}>↓ 18ms p99</span>
+                          </div>
+                        </div>
+                      )}
+
+                      {feature.id === 2 && (
+                        <div className="flex justify-between items-center pt-3 border-t border-[rgba(209,232,226,0.08)]">
+                          <span style={{ display: 'inline-block', border: '1px solid rgba(209,232,226,0.25)', borderRadius: '4px', padding: '2px 6px', fontSize: '10px', fontFamily: "'JetBrains Mono', monospace", color: '#D9E8E2' }}>200+ connectors</span>
+                          <span style={{ fontSize: '11px', fontFamily: "'JetBrains Mono', monospace", color: '#FFC801' }}>99.9% uptime</span>
+                        </div>
+                      )}
+
+                      {feature.id === 3 && (
+                        <div className="flex items-center gap-4 pt-3 border-t border-[rgba(209,232,226,0.08)]">
+                          <span style={{ fontFamily: "'JetBrains Mono', monospace", color: '#FFC801', fontSize: '1.5rem', fontWeight: 700, lineHeight: '1' }}>↑ 340%</span>
+                          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', color: '#D9E8E2', opacity: 0.8 }}>avg. pipeline ROI</span>
+                        </div>
+                      )}
+
+                      {feature.id === 4 && (
+                        <div className="flex justify-between items-center pt-3 border-t border-[rgba(209,232,226,0.08)]">
+                          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#D9E8E2', opacity: 0.6 }}>WebGL 2.0</span>
+                          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#FFC801' }}>● REALTIME</span>
+                        </div>
+                      )}
+
+                      {feature.id === 5 && (
+                        <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[rgba(209,232,226,0.08)]">
+                          {['Snowflake', 'Kafka', 'Stripe', 'AWS', 'MongoDB', 'Salesforce'].map((badge) => (
+                            <span
+                              key={badge}
+                              style={{
+                                border: '1px solid rgba(209,232,226,0.15)',
+                                fontFamily: "'Inter', sans-serif",
+                                fontSize: '10px',
+                                color: '#D9E8E2',
+                                borderRadius: '20px',
+                                padding: '2px 8px',
+                              }}
+                            >
+                              {badge}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               );
@@ -406,4 +497,3 @@ export default function Features() {
     </section>
   );
 }
-
