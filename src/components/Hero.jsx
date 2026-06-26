@@ -90,24 +90,19 @@ export default function Hero() {
         </div>
 
         {/* Stats Row (visual break comes purely from margin-top: 3rem whitespace, no separator lines/hrs) */}
-        <div className="hero-stats-container">
-          {STATS.map((stat, i) => (
-            <React.Fragment key={stat.label}>
-              <div className="hero-stat-card">
-                <div className="hero-stat-num-container">
-                  <ArrowTrendingUpIcon className="w-4 h-4 text-[#FFC801] mt-1.5 shrink-0" style={{ width: '16px', height: '16px' }} />
-                  <span className="hero-stat-num">
-                    {stat.value}
-                  </span>
-                </div>
-                <p className="hero-stat-label">
-                  {stat.label}
-                </p>
+        <div className="hero-stats-container flex flex-col md:flex-row gap-6 items-center justify-center">
+          {STATS.map((stat) => (
+            <div key={stat.label} className="hero-stat-card">
+              <div className="hero-stat-num-container">
+                <ArrowTrendingUpIcon className="w-4 h-4 text-[#FFC801] shrink-0" style={{ width: '16px', height: '16px' }} />
+                <span className="hero-stat-num">
+                  {stat.value}
+                </span>
               </div>
-              {i < STATS.length - 1 && (
-                <div className="hidden md:block hero-stat-divider" aria-hidden="true" />
-              )}
-            </React.Fragment>
+              <p className="hero-stat-label">
+                {stat.label}
+              </p>
+            </div>
           ))}
         </div>
 
