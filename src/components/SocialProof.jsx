@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon, ChartPieIcon } from '../assets/svgs';
 import { useRevealRef } from '../hooks/useIntersection';
+import TrustBar from './TrustBar';
 
 const TESTIMONIALS = [
   {
@@ -138,6 +139,11 @@ export default function SocialProof() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Logo Trust Bar placed near testimonies */}
+        <div className="mt-16 border-t border-[rgba(209,232,226,0.08)] pt-10">
+          <TrustBar />
         </div>
       </div>
     </section>
