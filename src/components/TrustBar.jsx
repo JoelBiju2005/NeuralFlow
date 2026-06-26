@@ -1,27 +1,27 @@
 import React from 'react';
 
-const COMPANIES = ['Accelion', 'DataSync', 'CloudNine', 'Nextera', 'Synthetix', 'Meridian'];
+const COMPANIES = ['VERTEX.AI', 'SYNAPSE', 'KRAKEN DATA', 'AETHER', 'HELIOS CORE', 'QUANTUM'];
 
 export default function TrustBar() {
   return (
     <section
       id="trust-bar"
       aria-label="Trusted by companies"
-      className="border-t border-b border-[rgba(209,232,226,0.12)] py-6 relative z-10"
+      className="py-4 relative z-10"
       style={{ background: 'transparent' }}
     >
-      <div className="container flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 md:gap-16">
+      <div className="container flex flex-col items-center justify-center gap-6">
         <span
-          className="text-xs font-medium text-[#D9E8E2] opacity-40 uppercase tracking-widest"
+          className="text-xs font-semibold text-[#D9E8E2] opacity-40 uppercase tracking-widest text-center"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
-          Trusted by teams at —
+          Trusted by fast-scaling technical engineering teams
         </span>
-        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
+        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-16 mt-2">
           {COMPANIES.map((company) => (
             <span
               key={company}
-              className="text-base md:text-lg font-semibold text-[#D9E8E2] opacity-35 hover:opacity-75 transition-opacity duration-200 cursor-default"
+              className="text-sm sm:text-base font-bold text-[#D9E8E2] opacity-35 hover:opacity-85 transition-opacity duration-200 cursor-default tracking-wider"
               style={{ fontFamily: "'JetBrains Mono', monospace" }}
             >
               {company}
