@@ -819,3 +819,63 @@ ul, ol {
   margin-bottom: -24px;
   display: block;
 }
+
+/* Icon container */
+.icon-pill {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 10px !important;
+  background: rgba(255, 200, 1, 0.08) !important;
+  border: 1px solid rgba(255, 200, 1, 0.18) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  transition: all 180ms ease-out !important;
+}
+
+/* Icon itself */
+.icon-pill svg {
+  width: 22px !important;
+  height: 22px !important;
+  color: #FFC801 !important;
+}
+
+/* On card hover — icon pill brightens */
+.bento-glass-card:hover .icon-pill {
+  background: rgba(255, 200, 1, 0.15) !important;
+  border-color: rgba(255, 200, 1, 0.35) !important;
+}
+
+/* Card number watermarks */
+.card-number {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 4rem !important;
+  font-weight: 700 !important;
+  color: #FFC801 !important;
+  opacity: 0.05 !important;
+  position: absolute !important;
+  top: 1rem !important;
+  right: 1.25rem !important;
+  line-height: 1 !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  transition: opacity 180ms ease-out !important;
+}
+
+/* On hover — number becomes slightly more visible */
+.bento-glass-card:hover .card-number {
+  opacity: 0.09 !important;
+}
+
+/* Spin only on hover */
+.animate-spin-hover {
+  animation: spinLinear 3s linear infinite !important;
+  animation-play-state: paused !important;
+}
+
+.bento-glass-card:hover .animate-spin-hover {
+  animation-play-state: running !important;
+}
+

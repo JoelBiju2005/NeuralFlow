@@ -10,56 +10,56 @@ import {
 export const FEATURES = [
   {
     id: 0,
-    title: 'Automation Engine',
+    title: 'Workflow Orchestration',
     description:
-      'Orchestrate complex multi-step workflows with zero-latency AI decision nodes. Handle millions of events with sub-50ms response times.',
+      'Design multi-step automation logic visually. Branch on conditions, retry on failure, and scale to millions of concurrent executions without managing infrastructure.',
     icon: CogIcon,
-    span: 'col-span-2',
+    span: 'col-span-7',
     accent: '#FFC801',
   },
   {
     id: 1,
-    title: 'Analytics Dashboard',
+    title: 'Real-Time Observability',
     description:
-      'Real-time insights across your entire pipeline. Drill down into any metric with AI-powered anomaly detection.',
+      'Every event. Every pipeline. Every anomaly — visible the moment it happens. Query your entire data topology with natural language.',
     icon: ChartPieIcon,
-    span: 'col-span-1',
+    span: 'col-span-5',
     accent: '#FF9932',
   },
   {
     id: 2,
-    title: 'Sync & Refresh',
+    title: 'Universal Data Sync',
     description:
-      'Bidirectional sync across 200+ data sources. Intelligent conflict resolution with full audit trail.',
+      'Bidirectional sync across 200+ connectors with automatic schema evolution. Zero polling overhead — purely event-driven.',
     icon: ArrowPathIcon,
-    span: 'col-span-1',
+    span: 'col-span-4',
     accent: '#FFC801',
   },
   {
     id: 3,
-    title: 'Growth Intelligence',
+    title: 'Predictive Intelligence',
     description:
-      'ML-powered predictive models surface opportunities before they happen. Turn raw events into revenue signals.',
+      'Surface churn signals, upgrade triggers, and revenue opportunities before your team even looks for them.',
     icon: ArrowTrendingUpIcon,
-    span: 'col-span-1',
+    span: 'col-span-4',
     accent: '#FF9932',
   },
   {
     id: 4,
-    title: '3D Data Modeling',
+    title: 'Graph Data Explorer',
     description:
-      'Visualize complex data relationships in immersive 3D graph space. Navigate your entire data topology at a glance.',
+      'Navigate your entire data topology as a live 3D graph. Spot dependencies, trace lineage, and debug pipelines spatially.',
     icon: CubeIcon,
-    span: 'col-span-1',
+    span: 'col-span-4',
     accent: '#FFC801',
   },
   {
     id: 5,
-    title: 'Deep Integrations',
+    title: 'Native Integrations',
     description:
-      'Native connectors for every major cloud platform, database, and SaaS tool in your stack.',
+      'Drop-in connectors for every layer of your stack — warehouse, CRM, CDP, and beyond. Encrypted TLS with automatic OAuth token rotation.',
     icon: LinkSolidIcon,
-    span: 'col-span-2',
+    span: 'col-span-12',
     accent: '#FF9932',
   },
 ];
