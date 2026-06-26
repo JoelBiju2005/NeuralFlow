@@ -260,11 +260,11 @@ export default function Features() {
               </div>
             </article>
 
-            {/* 6. Native Integrations (col-span-12) */}
+            {/* 6. Native Integrations (col-span-7) */}
             <article
               role="listitem"
-              className={`bento-glass-card col-span-12 p-8 flex flex-col justify-between reveal-card ${revealed ? 'revealed' : ''}`}
-              style={{ transitionDelay: '400ms', minHeight: '260px' }}
+              className={`bento-glass-card col-span-7 p-8 flex flex-col justify-between reveal-card ${revealed ? 'revealed' : ''}`}
+              style={{ transitionDelay: '400ms', minHeight: '320px' }}
               onMouseEnter={() => handleBentoHover(5)}
               aria-label="Native Integrations"
             >
