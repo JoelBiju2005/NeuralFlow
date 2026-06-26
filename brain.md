@@ -1,5 +1,5 @@
 # NeuralFlow — Project Brain
-> Last Updated: 2026-06-26T17:33:00+05:30
+> Last Updated: 2026-06-26T17:34:00+05:30
 > This file is the single source of truth for the entire project. 
 > Any IDE, agent, or developer picking up this project must read this file first.
 
@@ -167,3 +167,4 @@
 | 5 | 2026-06-26 | Features.jsx, brain.md | Filled bento cards with richer copy, feature lists, and detailed subsystem metadata descriptions to eliminate empty space |
 | 6 | 2026-06-26 | Features.jsx, SocialProof.jsx, brain.md | Unified page background — removed #114C5A alternation, all sections now transparent over #172B36 |
 | 7 | 2026-06-26 | Hero.jsx, SocialProof.jsx, App.jsx, globals.css, brain.md | Redesigned hero stats into premium glassmorphic boxes with smooth hover shadows/lift and moved TrustBar to the bottom of the SocialProof testimonials section |
+| 8 | 2026-06-26 | Hero.jsx, globals.css, brain.md | Swapped Hero copy, subtext, CTAs, and redesigned stats labels to use Inter 500, 12px, normal-case mystic mint |

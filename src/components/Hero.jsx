@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { ArrowTrendingUpIcon, LinkSolidIcon, ChevronDownIcon } from '../assets/svgs';
 
 const STATS = [
-  { label: 'Events/sec', value: '10M+' },
-  { label: 'Uptime', value: '99.99%' },
-  { label: 'Latency', value: '< 50ms' },
+  { label: 'Events Per Second', value: '10M+' },
+  { label: 'Guaranteed Uptime', value: '99.99%' },
+  { label: 'Pipeline Latency', value: '<50ms' },
 ];
 
 export default function Hero() {
@@ -46,10 +46,10 @@ export default function Hero() {
           }}
         >
           <span className="block text-[#F1F6F4] opacity-90 mb-1">
-            The Intelligence Layer
+            Data Moves Fast.
           </span>
           <span className="block text-[#FFC801]">
-            Your Stack Was Missing.
+            Your Infrastructure Should Too.
           </span>
         </h1>
 
@@ -67,8 +67,7 @@ export default function Hero() {
             margin: "0 auto",
           }}
         >
-          Unify every data source, automate every workflow, and surface decisions 
-          at machine speed — without writing a single pipeline from scratch.
+          NeuralFlow is the AI-native backbone that ingests, transforms, and activates your data in real time — so your team ships decisions, not pipelines.
         </p>
 
         {/* CTAs */}
@@ -77,7 +76,7 @@ export default function Hero() {
             href="#pricing"
             className="hero-btn-primary inline-flex items-center gap-2.5"
           >
-            Start Building
+            Start for Free
             <ArrowTrendingUpIcon className="w-4 h-4" />
           </a>
           <a
@@ -85,7 +84,7 @@ export default function Hero() {
             className="hero-btn-ghost inline-flex items-center gap-2"
           >
             <LinkSolidIcon className="w-4 h-4 shrink-0 text-[#D9E8E2]" style={{ width: '16px', height: '16px' }} />
-            <span>Watch Demo</span>
+            <span>See It in Action</span>
           </a>
         </div>
 
