@@ -116,7 +116,7 @@ export default function Features() {
             <article
               role="listitem"
               className={`bento-glass-card col-span-7 p-8 flex flex-col justify-between reveal-card ${revealed ? 'revealed' : ''}`}
-              style={{ transitionDelay: '0ms', minHeight: '340px' }}
+              style={{ transitionDelay: '0ms', minHeight: '380px' }}
               onMouseEnter={() => handleBentoHover(0)}
               aria-label="Automation Engine"
             >
@@ -129,9 +129,17 @@ export default function Features() {
                 </div>
                 <div className="mt-6">
                   <h3 style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, fontSize: '20px', color: '#F1F6F4', marginBottom: '8px' }}>Automation Engine</h3>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '14px', color: '#D9E8E2', lineHeight: 1.6 }}>
-                    Orchestrate complex multi-step workflows with zero-latency AI decision nodes. Handle millions of events with sub-50ms response times.
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '14px', color: '#D9E8E2', lineHeight: 1.6 }} className="mb-4">
+                    Orchestrate complex multi-step workflows with zero-latency AI decision nodes. Route, transform, and trigger event payloads instantly based on behavioral heuristics.
                   </p>
+                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '12px', color: '#D9E8E2', opacity: 0.85, listStyle: 'none', paddingLeft: 0 }}>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <span style={{ color: '#FFC801' }}>✦</span> Dynamic DAG Execution Paths
+                    </li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <span style={{ color: '#FFC801' }}>✦</span> Fail-safe backpressure throttling
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div className="mt-4 flex flex-col gap-2">
@@ -139,7 +147,7 @@ export default function Features() {
                   <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#FFC801', border: '1px solid rgba(255,200,1,0.2)', padding: '2px 6px', borderRadius: '4px' }}>EXECUTION: ACTIVE</span>
                   <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#D9E8E2', border: '1px solid rgba(209,232,226,0.15)', padding: '2px 6px', borderRadius: '4px' }}>THREADS: 256/sec</span>
                 </div>
-                <div className="flex items-center mt-2" style={{ height: '40px' }}>
+                <div className="flex items-center mt-2" style={{ height: '45px' }}>
                   <svg className="w-full h-full" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 30 C 30 25, 60 35, 90 15 C 120 5, 150 25, 200 5" stroke="#FFC801" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
                   </svg>
@@ -151,7 +159,7 @@ export default function Features() {
             <article
               role="listitem"
               className={`bento-glass-card col-span-5 p-8 flex flex-col justify-between reveal-card ${revealed ? 'revealed' : ''}`}
-              style={{ transitionDelay: '80ms', minHeight: '340px' }}
+              style={{ transitionDelay: '80ms', minHeight: '380px' }}
               onMouseEnter={() => handleBentoHover(1)}
               aria-label="Analytics Dashboard"
             >
@@ -164,9 +172,17 @@ export default function Features() {
                 </div>
                 <div className="mt-6">
                   <h3 style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, fontSize: '20px', color: '#F1F6F4', marginBottom: '8px' }}>Analytics Dashboard</h3>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '14px', color: '#D9E8E2', lineHeight: 1.6 }}>
-                    Real-time insights across your entire pipeline. Drill down into any metric with AI-powered anomaly detection.
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '14px', color: '#D9E8E2', lineHeight: 1.6 }} className="mb-4">
+                    Real-time insights across your entire pipeline. Track system bottlenecks, trace payloads, and run ad-hoc metrics in seconds.
                   </p>
+                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '12px', color: '#D9E8E2', opacity: 0.85, listStyle: 'none', paddingLeft: 0 }}>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <span style={{ color: '#FF9932' }}>✦</span> AI-powered anomaly alerts
+                    </li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <span style={{ color: '#FF9932' }}>✦</span> Structured event query builder
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
@@ -180,7 +196,7 @@ export default function Features() {
             <article
               role="listitem"
               className={`bento-glass-card col-span-4 p-8 flex flex-col justify-between reveal-card ${revealed ? 'revealed' : ''}`}
-              style={{ transitionDelay: '160ms', minHeight: '300px' }}
+              style={{ transitionDelay: '160ms', minHeight: '320px' }}
               onMouseEnter={() => handleBentoHover(2)}
               aria-label="Sync & Refresh"
             >
@@ -189,9 +205,12 @@ export default function Features() {
                   <ArrowPathIcon className="w-7 h-7 animate-spin-linear" />
                 </div>
                 <h3 style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, fontSize: '18px', color: '#F1F6F4', marginTop: '20px', marginBottom: '8px' }}>Sync & Refresh</h3>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '13px', color: '#D9E8E2', lineHeight: 1.5 }}>
-                  Bidirectional sync across 200+ data sources. Intelligent conflict resolution.
+                <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '13px', color: '#D9E8E2', lineHeight: 1.5 }} className="mb-3">
+                  Bidirectional sync across 200+ data sources. Automatic schema drift adaptation.
                 </p>
+                <div style={{ fontSize: '11px', color: '#D9E8E2', opacity: 0.7 }}>
+                  Updates trigger instantly upon upstream changes with zero polling overhead.
+                </div>
               </div>
               <div className="mt-4 flex justify-between items-center">
                 <span style={{ display: 'inline-block', border: '1px solid rgba(209,232,226,0.25)', borderRadius: '4px', padding: '2px 8px', fontSize: '11px', fontFamily: "'JetBrains Mono', monospace", color: '#D9E8E2' }}>200+ sources</span>
@@ -203,7 +222,7 @@ export default function Features() {
             <article
               role="listitem"
               className={`bento-glass-card col-span-4 p-8 flex flex-col justify-between reveal-card ${revealed ? 'revealed' : ''}`}
-              style={{ transitionDelay: '240ms', minHeight: '300px' }}
+              style={{ transitionDelay: '240ms', minHeight: '320px' }}
               onMouseEnter={() => handleBentoHover(3)}
               aria-label="Growth Intelligence"
             >
@@ -212,9 +231,12 @@ export default function Features() {
                   <ArrowTrendingUpIcon className="w-7 h-7" />
                 </div>
                 <h3 style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, fontSize: '18px', color: '#F1F6F4', marginTop: '20px', marginBottom: '8px' }}>Growth Intelligence</h3>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '13px', color: '#D9E8E2', lineHeight: 1.5 }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '13px', color: '#D9E8E2', lineHeight: 1.5 }} className="mb-3">
                   ML-powered predictive models surface opportunities before they happen.
                 </p>
+                <div style={{ fontSize: '11px', color: '#D9E8E2', opacity: 0.7 }}>
+                  Predicts customer churn and signals upgrade paths using real-time usage data.
+                </div>
               </div>
               <div className="mt-4 flex flex-col">
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", color: '#FFC801', fontSize: '2rem', fontWeight: 700, lineHeight: '1' }}>↑ 340%</span>
@@ -226,7 +248,7 @@ export default function Features() {
             <article
               role="listitem"
               className={`bento-glass-card col-span-4 p-8 flex flex-col justify-between reveal-card ${revealed ? 'revealed' : ''}`}
-              style={{ transitionDelay: '320ms', minHeight: '300px' }}
+              style={{ transitionDelay: '320ms', minHeight: '320px' }}
               onMouseEnter={() => handleBentoHover(4)}
               aria-label="3D Data Modeling"
             >
@@ -235,11 +257,14 @@ export default function Features() {
                   <CubeIcon className="w-8 h-8 animate-pulse-opacity" />
                 </div>
                 <h3 style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, fontSize: '18px', color: '#F1F6F4', marginTop: '20px', marginBottom: '8px' }}>3D Data Modeling</h3>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '13px', color: '#D9E8E2', lineHeight: 1.5 }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '13px', color: '#D9E8E2', lineHeight: 1.5 }} className="mb-3">
                   Visualize complex data relationships in 3D graph space. Navigate entire topologies.
                 </p>
+                <div style={{ fontSize: '11px', color: '#D9E8E2', opacity: 0.7 }}>
+                  Render massive dependency maps in browser GPU using hardware-accelerated nodes.
+                </div>
               </div>
-              <div className="mt-4 flex gap-2">
+              <div className="mt-4 flex justify-between items-center">
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#D9E8E2', opacity: 0.6 }}>WEBGL 2.0</span>
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#FFC801' }}>● REALTIME</span>
               </div>
@@ -259,8 +284,11 @@ export default function Features() {
                 </div>
                 <div className="mt-4">
                   <h3 style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, fontSize: '20px', color: '#F1F6F4', marginBottom: '8px' }}>Deep Integrations</h3>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '14px', color: '#D9E8E2', lineHeight: 1.6 }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '14px', color: '#D9E8E2', lineHeight: 1.6 }} className="mb-2">
                     Native connectors for every major cloud platform, database, and SaaS tool in your stack.
+                  </p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#D9E8E2', opacity: 0.75 }}>
+                    Connect pipelines directly using encrypted TLS connections with automatic OAuth rotation.
                   </p>
                 </div>
               </div>
