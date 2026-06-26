@@ -218,6 +218,18 @@ export default function Features() {
               </div>
             </article>
 
+            {/* Center Logo - Floating and Unboxed (col-span-4) */}
+            <div
+              className={`col-span-4 flex items-center justify-center reveal-card ${revealed ? 'revealed' : ''}`}
+              style={{ transitionDelay: '200ms', minHeight: '320px' }}
+              aria-hidden="true"
+            >
+              <div className="relative flex items-center justify-center">
+                <div className="absolute w-32 h-32 rounded-full bg-gradient-to-tr from-[#FFC801] to-[#FF9932] opacity-[0.08] blur-xl animate-pulse" />
+                <CubeIcon className="w-[100px] h-[100px] text-[#FFC801] relative z-10 animate-float" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 200, 1, 0.45))' }} />
+              </div>
+            </div>
+
             {/* 4. Growth Intelligence (col-span-4) */}
             <article
               role="listitem"
@@ -244,10 +256,10 @@ export default function Features() {
               </div>
             </article>
 
-            {/* 5. 3D Data Modeling (col-span-4) */}
+            {/* 5. 3D Data Modeling (col-span-5) */}
             <article
               role="listitem"
-              className={`bento-glass-card col-span-4 p-8 flex flex-col justify-between reveal-card ${revealed ? 'revealed' : ''}`}
+              className={`bento-glass-card col-span-5 p-8 flex flex-col justify-between reveal-card ${revealed ? 'revealed' : ''}`}
               style={{ transitionDelay: '320ms', minHeight: '320px' }}
               onMouseEnter={() => handleBentoHover(4)}
               aria-label="3D Data Modeling"
@@ -274,7 +286,7 @@ export default function Features() {
             <article
               role="listitem"
               className={`bento-glass-card col-span-7 p-8 flex flex-col justify-between reveal-card ${revealed ? 'revealed' : ''}`}
-              style={{ transitionDelay: '400ms', minHeight: '300px' }}
+              style={{ transitionDelay: '400ms', minHeight: '320px' }}
               onMouseEnter={() => handleBentoHover(5)}
               aria-label="Deep Integrations"
             >
@@ -310,15 +322,6 @@ export default function Features() {
                 ))}
               </div>
             </article>
-
-            {/* 7. Empty Decorative Card (col-span-5) */}
-            <div
-              className={`bento-glass-card col-span-5 p-8 flex items-center justify-center animate-gradient-shift reveal-card ${revealed ? 'revealed' : ''}`}
-              style={{ transitionDelay: '480ms', minHeight: '280px' }}
-              aria-hidden="true"
-            >
-              <CubeIcon className="w-[120px] h-[120px] text-[#FFC801]" style={{ opacity: 0.04 }} />
-            </div>
           </div>
         )}
 
