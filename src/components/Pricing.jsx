@@ -164,7 +164,6 @@ export default function Pricing() {
         <div className="container mx-auto relative z-10">
           {/* Header */}
           <header className="text-center mb-16">
-            <p className="eyebrow">// PRICING</p>
             <h2
               className="section-heading"
             >

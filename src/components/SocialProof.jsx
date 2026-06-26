@@ -132,7 +132,6 @@ export default function SocialProof() {
       <div className="container mx-auto relative z-10">
         {/* Header */}
         <header className="text-center mb-16">
-          <p className="eyebrow">// PROOF</p>
           <h2 className="section-heading">
             Trusted by Builders.
           </h2>
