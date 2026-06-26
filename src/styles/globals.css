@@ -114,15 +114,15 @@ ul, ol {
 }
 
 /* ============================================================
-   CONTAINER — Tailwind v4 doesn't auto-center containers
+   CONTAINER — Force center override for Tailwind v4
    ============================================================ */
 .container {
-  width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
 }
 
 /* ============================================================
