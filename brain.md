@@ -178,5 +178,7 @@
 | 11 | 2026-06-26 | TrustBar.jsx, MarqueeSection.jsx, App.jsx, globals.css, brain.md | Created MarqueeSection (containing overhauled semantic TrustBar, auto-scrolling metric marquee, and section gradient bridge) to fill dead space between Hero and Features |
 | 12 | 2026-06-26 | Features.jsx, brain.md | Inserted unboxed, animated NeuralFlow centerpiece logo in the middle of the bento grid layout |
 | 13 | 2026-06-26 | Pricing.jsx, SocialProof.jsx, globals.css, brain.md | Removed `// PRICING` and `// PROOF` eyebrow tags and fixed section content horizontal centering by refining the global container rule |
+| 14 | 2026-06-26 | Features.jsx, brain.md | Upgraded mobile accordion layout and styles with active glow indicators, rotating chevron animation, and rich stats and metrics matching desktop bento cards |
+
 
 
