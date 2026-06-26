@@ -122,8 +122,8 @@ export default function Features() {
             >
               <div>
                 <div className="flex justify-between items-start">
-                  <div style={{ background: 'rgba(255,200,1,0.1)', borderRadius: '8px', padding: '8px', color: '#FFC801', display: 'inline-flex' }}>
-                    <CogIcon className="w-7 h-7" />
+                  <div className="bento-icon-pill bento-icon-pill-gold">
+                    <CogIcon className="w-9 h-9" />
                   </div>
                   <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '3rem', fontWeight: 700, color: '#FFC801', opacity: 0.06, userSelect: 'none', lineHeight: '1' }}>01</span>
                 </div>
@@ -165,8 +165,8 @@ export default function Features() {
             >
               <div>
                 <div className="flex justify-between items-start">
-                  <div style={{ background: 'rgba(255,153,50,0.1)', borderRadius: '8px', padding: '8px', color: '#FF9932', display: 'inline-flex' }}>
-                    <ChartPieIcon className="w-7 h-7" />
+                  <div className="bento-icon-pill bento-icon-pill-saffron">
+                    <ChartPieIcon className="w-9 h-9" />
                   </div>
                   <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '3rem', fontWeight: 700, color: '#FF9932', opacity: 0.06, userSelect: 'none', lineHeight: '1' }}>02</span>
                 </div>
@@ -201,8 +201,8 @@ export default function Features() {
               aria-label="Sync & Refresh"
             >
               <div>
-                <div style={{ background: 'rgba(255,200,1,0.1)', borderRadius: '8px', padding: '8px', color: '#FFC801', display: 'inline-flex' }}>
-                  <ArrowPathIcon className="w-7 h-7 animate-spin-linear" />
+                <div className="bento-icon-pill bento-icon-pill-gold">
+                  <ArrowPathIcon className="w-9 h-9 animate-spin-linear" />
                 </div>
                 <h3 style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, fontSize: '18px', color: '#F1F6F4', marginTop: '20px', marginBottom: '8px' }}>Sync & Refresh</h3>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '13px', color: '#D9E8E2', lineHeight: 1.5 }} className="mb-3">
@@ -227,8 +227,8 @@ export default function Features() {
               aria-label="Growth Intelligence"
             >
               <div>
-                <div style={{ background: 'rgba(255,153,50,0.1)', borderRadius: '8px', padding: '8px', color: '#FF9932', display: 'inline-flex' }}>
-                  <ArrowTrendingUpIcon className="w-7 h-7" />
+                <div className="bento-icon-pill bento-icon-pill-saffron">
+                  <ArrowTrendingUpIcon className="w-9 h-9 animate-float" />
                 </div>
                 <h3 style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, fontSize: '18px', color: '#F1F6F4', marginTop: '20px', marginBottom: '8px' }}>Growth Intelligence</h3>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '13px', color: '#D9E8E2', lineHeight: 1.5 }} className="mb-3">
@@ -253,8 +253,8 @@ export default function Features() {
               aria-label="3D Data Modeling"
             >
               <div>
-                <div style={{ background: 'rgba(255,200,1,0.1)', borderRadius: '8px', padding: '8px', color: '#FFC801', display: 'inline-flex' }}>
-                  <CubeIcon className="w-8 h-8 animate-pulse-opacity" />
+                <div className="bento-icon-pill bento-icon-pill-gold">
+                  <CubeIcon className="w-9 h-9 animate-pulse-opacity" />
                 </div>
                 <h3 style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, fontSize: '18px', color: '#F1F6F4', marginTop: '20px', marginBottom: '8px' }}>3D Data Modeling</h3>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '13px', color: '#D9E8E2', lineHeight: 1.5 }} className="mb-3">
@@ -279,8 +279,8 @@ export default function Features() {
               aria-label="Deep Integrations"
             >
               <div>
-                <div style={{ background: 'rgba(255,153,50,0.1)', borderRadius: '8px', padding: '8px', color: '#FF9932', display: 'inline-flex' }}>
-                  <LinkSolidIcon className="w-7 h-7" />
+                <div className="bento-icon-pill bento-icon-pill-saffron">
+                  <LinkSolidIcon className="w-9 h-9" />
                 </div>
                 <div className="mt-4">
                   <h3 style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, fontSize: '20px', color: '#F1F6F4', marginBottom: '8px' }}>Deep Integrations</h3>

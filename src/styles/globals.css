@@ -572,26 +572,96 @@ ul, ol {
    BENTO GRID & GLASSMORPHISM CARDS
    ============================================================ */
 .bento-glass-card {
-  background: rgba(23, 43, 54, 0.6) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(255, 200, 1, 0.12) !important;
-  border-radius: 16px !important;
-  box-shadow: 
-    0 4px 24px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 200, 1, 0.08) !important;
-  transition: all 180ms ease-out !important;
+  background: rgba(23, 43, 54, 0.55) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 200, 1, 0.1) !important;
+  border-radius: 20px !important;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  transition: all 320ms cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   position: relative;
   overflow: hidden;
 }
 
+.bento-glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: radial-gradient(ellipse at 30% 0%, rgba(255, 200, 1, 0.04) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 320ms ease-out;
+  pointer-events: none;
+}
+
 .bento-glass-card:hover {
-  border-color: rgba(255, 200, 1, 0.35) !important;
-  box-shadow: 
-    0 8px 40px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 200, 1, 0.2),
-    inset 0 1px 0 rgba(255, 200, 1, 0.15) !important;
-  background: rgba(26, 50, 64, 0.75) !important;
+  border-color: rgba(255, 200, 1, 0.28) !important;
+  transform: translateY(-4px) !important;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    0 28px 80px rgba(0, 0, 0, 0.15),
+    0 0 60px rgba(255, 200, 1, 0.06),
+    inset 0 1px 0 rgba(255, 200, 1, 0.1) !important;
+  background: rgba(26, 50, 64, 0.7) !important;
+}
+
+.bento-glass-card:hover::before {
+  opacity: 1;
+}
+
+/* Icon pill container — larger and glowing */
+.bento-icon-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 14px !important;
+  transition: all 280ms ease-out !important;
+  position: relative;
+}
+
+.bento-icon-pill::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 18px;
+  opacity: 0;
+  transition: opacity 280ms ease-out;
+  pointer-events: none;
+}
+
+.bento-icon-pill-gold {
+  background: rgba(255, 200, 1, 0.1) !important;
+  color: #FFC801 !important;
+  box-shadow: 0 2px 12px rgba(255, 200, 1, 0.08) !important;
+}
+
+.bento-icon-pill-gold::after {
+  background: radial-gradient(circle, rgba(255, 200, 1, 0.12) 0%, transparent 70%);
+}
+
+.bento-icon-pill-saffron {
+  background: rgba(255, 153, 50, 0.1) !important;
+  color: #FF9932 !important;
+  box-shadow: 0 2px 12px rgba(255, 153, 50, 0.08) !important;
+}
+
+.bento-icon-pill-saffron::after {
+  background: radial-gradient(circle, rgba(255, 153, 50, 0.12) 0%, transparent 70%);
+}
+
+.bento-glass-card:hover .bento-icon-pill {
+  transform: scale(1.1) !important;
+}
+
+.bento-glass-card:hover .bento-icon-pill::after {
+  opacity: 1;
 }
 
 /* CSS Animations for specific icons */
@@ -610,6 +680,11 @@ ul, ol {
   100% { background-color: rgba(255, 153, 50, 0.06); }
 }
 
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
 .animate-spin-linear {
   animation: spinLinear 3s linear infinite !important;
 }
@@ -622,19 +697,21 @@ ul, ol {
   animation: decorativeGradientShift 4s ease-in-out infinite alternate !important;
 }
 
+.animate-float {
+  animation: subtleFloat 3s ease-in-out infinite !important;
+}
+
 /* Scroll reveal helper classes */
 .reveal-card {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 300ms ease-out, transform 300ms ease-out !important;
+  transition: opacity 400ms ease-out, transform 400ms ease-out !important;
 }
 
 .reveal-card.revealed {
   opacity: 1;
   transform: translateY(0);
 }
-
-
 
 
 
