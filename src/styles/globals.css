@@ -1,0 +1,640 @@
+@import "tailwindcss";
+@import './animations.css';
+
+/* ============================================================
+   TAILWIND V4 THEME CONFIGURATION
+   ============================================================ */
+@theme {
+  /* Color palette — exact hex, no deviation */
+  --color-forsythia: #FFC801;
+  --color-nocturnal: #114C5A;
+  --color-arctic-powder: #F1F6F4;
+  --color-mystic-mint: #D9E8E2;
+  --color-deep-saffron: #FF9932;
+  --color-oceanic-noir: #172B36;
+
+  /* Semantic tokens */
+  --color-bg-page: #172B36;
+  --color-bg-section-alt: #114C5A;
+  --color-bg-card: #1a3240;
+  --color-bg-card-hover: #1f3a4a;
+  --color-accent-primary: #FFC801;
+  --color-accent-hover: #FF9932;
+  --color-text-primary: #F1F6F4;
+  --color-text-secondary: #D9E8E2;
+
+  /* Typography */
+  --font-jetbrains: 'JetBrains Mono', monospace;
+  --font-inter: 'Inter', sans-serif;
+}
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES (for non-Tailwind usage)
+   ============================================================ */
+:root {
+  --color-forsythia: #FFC801;
+  --color-nocturnal: #114C5A;
+  --color-arctic-powder: #F1F6F4;
+  --color-mystic-mint: #D9E8E2;
+  --color-deep-saffron: #FF9932;
+  --color-oceanic-noir: #172B36;
+
+  --bg-page: #172B36;
+  --bg-section-alt: #114C5A;
+  --bg-card: #1a3240;
+  --bg-card-hover: #1f3a4a;
+  --accent-primary: #FFC801;
+  --accent-secondary: #FF9932;
+  --text-primary: #F1F6F4;
+  --text-secondary: #D9E8E2;
+  --text-muted: rgba(209, 232, 226, 0.6);
+  --border-default: rgba(209, 232, 226, 0.12);
+  --border-accent: rgba(255, 200, 1, 0.4);
+  --gradient-warm: linear-gradient(135deg, #FFC801 0%, #FF9932 100%);
+  --gradient-hero: radial-gradient(ellipse at 60% 40%, rgba(255, 200, 1, 0.08) 0%, transparent 60%);
+
+  --font-display: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+  font-size: 16px;
+}
+
+/* ============================================================
+   BASE RESET & GLOBAL STYLES
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  font-family: var(--font-display);
+}
+
+h3 {
+  font-family: var(--font-body);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ============================================================
+   SELECTION COLORS
+   ============================================================ */
+::selection {
+  background-color: rgba(255, 200, 1, 0.3);
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   SCROLLBAR STYLING
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(209, 232, 226, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(209, 232, 226, 0.3);
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (max-width: 767px) {
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* Eyebrow label style */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-forsythia);
+  margin-bottom: 1rem;
+}
+
+/* Section heading */
+.section-heading {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+  .section-heading {
+    font-size: 1.75rem;
+  }
+}
+
+.section-subheading {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   GLASSMORPHISM CARD BASE
+   ============================================================ */
+.glass-card {
+  background: rgba(26, 50, 64, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+}
+
+/* ============================================================
+   GRADIENT TEXT
+   ============================================================ */
+.gradient-text {
+  background: linear-gradient(135deg, #FFC801, #FF9932);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   PRICING REDESIGN CUSTOM STYLES (Robust overrides)
+   ============================================================ */
+.pricing-controls-wrapper {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 24px !important;
+  margin-top: 48px !important;
+  margin-bottom: 64px !important;
+}
+
+.pricing-toggle-container {
+  display: inline-flex !important;
+  align-items: center !important;
+  border-radius: 9999px !important;
+  background-color: #172B36 !important;
+  border: 1px solid rgba(209, 232, 226, 0.12) !important;
+  padding: 4px !important;
+  gap: 4px !important;
+}
+
+.pricing-toggle-btn {
+  padding: 10px 24px !important;
+  border-radius: 9999px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  transition: all 0.2s ease-out !important;
+  cursor: pointer !important;
+  border: none !important;
+  background: none !important;
+}
+
+.pricing-toggle-btn.active {
+  background-color: #FFC801 !important;
+  color: #172B36 !important;
+}
+
+.pricing-toggle-btn.inactive {
+  color: #D9E8E2 !important;
+  background-color: transparent !important;
+}
+
+.pricing-toggle-btn.inactive:hover {
+  color: #FFC801 !important;
+}
+
+.pricing-currency-btn {
+  width: 60px !important;
+  padding: 6px 0 !important;
+  border-radius: 9999px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease-out !important;
+  cursor: pointer !important;
+  border: none !important;
+  background: none !important;
+}
+
+.pricing-currency-btn.active {
+  background-color: #F1F6F4 !important;
+  color: #172B36 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+.pricing-currency-btn.inactive {
+  color: #D9E8E2 !important;
+  background-color: transparent !important;
+}
+
+.pricing-currency-btn.inactive:hover {
+  color: #F1F6F4 !important;
+}
+
+.pricing-card-custom {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  border-radius: 24px !important;
+  padding: 32px !important;
+  background-color: #172B36 !important;
+  transition: all 0.3s ease-out !important;
+  min-height: 560px !important;
+}
+
+.pricing-card-custom.featured {
+  border: 2px solid #FFC801 !important;
+  box-shadow: 0 0 30px rgba(255, 200, 1, 0.08) !important;
+}
+
+.pricing-card-custom.standard {
+  border: 1px solid rgba(209, 232, 226, 0.1) !important;
+}
+
+.pricing-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  padding: 14px 24px !important;
+  border-radius: 9999px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease-out !important;
+}
+
+.pricing-btn-primary {
+  background-color: #FFC801 !important;
+  color: #172B36 !important;
+  border: none !important;
+}
+
+.pricing-btn-primary:hover {
+  background-color: #FF9932 !important;
+}
+
+.pricing-btn-outline {
+  background-color: transparent !important;
+  color: #F1F6F4 !important;
+  border: 1px solid rgba(209, 232, 226, 0.2) !important;
+}
+
+.pricing-btn-outline:hover {
+  border-color: #FFC801 !important;
+  color: #FFC801 !important;
+  background-color: rgba(255, 200, 1, 0.03) !important;
+}
+
+/* ============================================================
+   NAV & HERO DESIGN IMPROVEMENTS
+   ============================================================ */
+.nav-get-started {
+  background-color: #FFC801 !important;
+  color: #172B36 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  padding: 10px 24px !important;
+  border-radius: 8px !important;
+  transition: all 180ms ease-out !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 12px rgba(255, 200, 1, 0.1) !important;
+  outline: none !important;
+}
+
+.nav-get-started:hover {
+  background-color: #FF9932 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(255, 200, 1, 0.25) !important;
+}
+
+.nav-get-started:focus-visible {
+  outline: 2px solid #FFC801 !important;
+  outline-offset: 2px !important;
+}
+
+@keyframes pulseOpacity {
+  0%, 100% { opacity: 0.35; transform: translate(-50%, 0); }
+  50% { opacity: 0.95; transform: translate(-50%, 6px); }
+}
+
+.scroll-indicator-pulse {
+  animation: pulseOpacity 1.8s infinite ease-in-out;
+}
+
+/* Nav links underline hover slide-in */
+.nav-link-custom {
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #D9E8E2;
+  transition: color 180ms ease-out;
+}
+
+.nav-link-custom:hover {
+  color: #F1F6F4;
+}
+
+.nav-link-custom::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #FFC801;
+  transition: width 180ms ease-out;
+}
+
+.nav-link-custom:hover::after {
+  width: 100%;
+}
+
+.nav-search-btn {
+  color: #D9E8E2;
+  transition: color 150ms ease-out, transform 150ms ease-out;
+}
+
+.nav-search-btn:hover {
+  color: #FFC801;
+  transform: scale(1.05);
+}
+
+/* Hero Overhaul SPEC styles */
+.hero-btn-primary {
+  background-color: #FFC801 !important;
+  color: #172B36 !important;
+  padding: 12px 28px !important;
+  border-radius: 6px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  transition: all 180ms ease-out !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 12px rgba(255, 200, 1, 0.15) !important;
+  outline: none !important;
+}
+
+.hero-btn-primary:hover {
+  background-color: #FF9932 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 24px rgba(255, 200, 1, 0.25) !important;
+}
+
+.hero-btn-primary:focus-visible {
+  outline: 2px solid #FFC801 !important;
+  outline-offset: 2px !important;
+}
+
+.hero-btn-ghost {
+  background-color: transparent !important;
+  color: #F1F6F4 !important;
+  border: 1px solid rgba(241, 246, 244, 0.25) !important;
+  padding: 12px 28px !important;
+  border-radius: 6px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  transition: all 180ms ease-out !important;
+  cursor: pointer !important;
+  outline: none !important;
+}
+
+.hero-btn-ghost:hover {
+  border-color: #D9E8E2 !important;
+  background-color: rgba(209, 232, 226, 0.06) !important;
+}
+
+.hero-btn-ghost:focus-visible {
+  outline: 2px solid #FFC801 !important;
+  outline-offset: 2px !important;
+}
+
+/* Elevated Stats Layout */
+.hero-stats-container {
+  width: 100% !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 3rem !important; /* 48px from CTA */
+  padding-top: 0 !important;
+  border: none !important;
+}
+
+.hero-stat-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  border: 1px solid transparent !important;
+  transition: all 160ms ease-out !important;
+  background-color: transparent !important;
+  position: relative !important;
+}
+
+.hero-stat-card:hover {
+  background-color: rgba(255, 200, 1, 0.04) !important;
+  border-color: rgba(255, 200, 1, 0.15) !important;
+}
+
+.hero-stat-num-container {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 4px !important;
+}
+
+.hero-stat-num {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 700 !important;
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  color: #FFC801 !important;
+  line-height: 1 !important;
+}
+
+.hero-stat-label {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 11px !important;
+  color: #D9E8E2 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  margin-top: 6px !important;
+  opacity: 0.85 !important;
+}
+
+.hero-stat-divider {
+  width: 1px !important;
+  height: 40px !important;
+  background-color: rgba(209, 232, 226, 0.2) !important;
+}
+
+/* Global Typography Specs */
+.section-heading {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 600 !important;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem) !important;
+  color: #F1F6F4 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.section-subheading {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 1rem !important;
+  color: #D9E8E2 !important;
+  opacity: 0.8 !important;
+  line-height: 1.6 !important;
+}
+
+/* ============================================================
+   BENTO GRID & GLASSMORPHISM CARDS
+   ============================================================ */
+.bento-glass-card {
+  background: rgba(23, 43, 54, 0.6) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 200, 1, 0.12) !important;
+  border-radius: 16px !important;
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 200, 1, 0.08) !important;
+  transition: all 180ms ease-out !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-glass-card:hover {
+  border-color: rgba(255, 200, 1, 0.35) !important;
+  box-shadow: 
+    0 8px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 200, 1, 0.2),
+    inset 0 1px 0 rgba(255, 200, 1, 0.15) !important;
+  background: rgba(26, 50, 64, 0.75) !important;
+}
+
+/* CSS Animations for specific icons */
+@keyframes spinLinear {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseOpacityIcon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes decorativeGradientShift {
+  0% { background-color: rgba(255, 200, 1, 0.03); }
+  100% { background-color: rgba(255, 153, 50, 0.06); }
+}
+
+.animate-spin-linear {
+  animation: spinLinear 3s linear infinite !important;
+}
+
+.animate-pulse-opacity {
+  animation: pulseOpacityIcon 2s ease-in-out infinite !important;
+}
+
+.animate-gradient-shift {
+  animation: decorativeGradientShift 4s ease-in-out infinite alternate !important;
+}
+
+/* Scroll reveal helper classes */
+.reveal-card {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 300ms ease-out, transform 300ms ease-out !important;
+}
+
+.reveal-card.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
