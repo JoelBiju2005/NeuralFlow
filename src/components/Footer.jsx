@@ -44,14 +44,19 @@ export default function Footer() {
     >
       {/* CTA Banner */}
       <div className="container mx-auto py-16 md:py-20">
-        <div className="relative rounded-2xl border border-[rgba(255,200,1,0.15)] p-8 md:p-12 pb-12 md:pb-16 text-center"
-             style={{ background: 'linear-gradient(135deg, rgba(255,200,1,0.05) 0%, rgba(255,153,50,0.05) 100%)' }}>
+        <div 
+          className="relative rounded-2xl border border-[rgba(255,200,1,0.15)] text-center max-w-3xl mx-auto"
+          style={{ 
+            background: 'linear-gradient(135deg, rgba(255,200,1,0.05) 0%, rgba(255,153,50,0.05) 100%)',
+            padding: '48px 32px'
+          }}
+        >
           {/* Glow effect */}
           <div className="absolute inset-0 pointer-events-none rounded-2xl"
                style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(255,200,1,0.08), transparent 60%)' }}
                aria-hidden="true" />
 
-          <div className="relative z-10">
+          <div className="relative z-10 flex flex-col items-center">
             <h2
               className="text-2xl md:text-3xl font-bold text-[#F1F6F4] mb-4"
               style={{ fontFamily: "'JetBrains Mono', monospace" }}
@@ -60,23 +65,29 @@ export default function Footer() {
             </h2>
             <p
               className="text-base text-[#D9E8E2] max-w-lg mx-auto mb-8"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: "'Inter', sans-serif", opacity: 0.85 }}
             >
               Start building intelligent data pipelines in minutes. No credit card required.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
               <a
                 href="#pricing"
-                className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-semibold bg-[#FFC801] text-[#172B36]"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                className="btn-primary inline-flex items-center justify-center gap-2 rounded-xl text-base font-semibold bg-[#FFC801] text-[#172B36]"
+                style={{ 
+                  fontFamily: "'Inter', sans-serif",
+                  padding: '14px 32px'
+                }}
               >
                 Start Free Trial
                 <ChevronRightIcon className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="btn-ghost inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-semibold text-[#D9E8E2] border border-[rgba(209,232,226,0.25)]"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl text-base font-semibold text-[#D9E8E2] border border-[rgba(209,232,226,0.25)]"
+                style={{ 
+                  fontFamily: "'Inter', sans-serif",
+                  padding: '14px 32px'
+                }}
               >
                 Talk to Sales
               </a>
