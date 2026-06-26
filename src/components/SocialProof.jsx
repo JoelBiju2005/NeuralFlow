@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon, ChartPieIcon } from '../assets/svgs';
+import { ChevronLeftIcon, ChevronRightIcon } from '../assets/svgs';
 import { useRevealRef } from '../hooks/useIntersection';
 import TrustBar from './TrustBar';
 
@@ -10,27 +10,41 @@ const TESTIMONIALS = [
     author: 'Dr. Elena Rostova',
     role: 'Chief AI Architect',
     company: 'SYNAPSE',
+    initials: 'ER',
   },
   {
     id: 1,
     quote: 'Handling 50M+ daily events became effortless. The sub-50ms latency metrics was a standard we were skeptical about, but they delivered flawlessly.',
     author: 'Marcus Rodriguez',
     role: 'CTO',
-    company: 'DataSync',
+    company: 'DATASYNC',
+    initials: 'MR',
   },
   {
     id: 2,
     quote: 'Pipeline overhead and maintenance dropped by 73%. With deep integrations, we migrated our legacy connectors in less than a week.',
     author: 'Priya Sharma',
     role: 'Head of Data Science',
-    company: 'Nextera',
+    company: 'NEXTERA',
+    initials: 'PS',
   },
 ];
 
 export default function SocialProof() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRevealRef();
   const autoplayRef = useRef(null);
+
+  // Check mobile viewport width
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const goNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % TESTIMONIALS.length);
@@ -45,7 +59,7 @@ export default function SocialProof() {
     stopAutoplay();
     autoplayRef.current = setInterval(() => {
       goNext();
-    }, 5000); // changes testimony every 5 seconds
+    }, 5000);
   }, [goNext]);
 
   const stopAutoplay = useCallback(() => {
@@ -59,7 +73,53 @@ export default function SocialProof() {
     return () => stopAutoplay();
   }, [startAutoplay, stopAutoplay]);
 
-  const currentTestimonial = TESTIMONIALS[activeIndex];
+  const prevIndex = (activeIndex - 1 + TESTIMONIALS.length) % TESTIMONIALS.length;
+  const nextIndex = (activeIndex + 1) % TESTIMONIALS.length;
+
+  const renderCard = (index, position) => {
+    const item = TESTIMONIALS[index];
+    const isActive = position === 'active';
+
+    return (
+      <div
+        key={item.id}
+        className={`testimonial-deck-card ${
+          isActive ? 'testimonial-deck-card--active' : 'testimonial-deck-card--inactive hidden md:flex'
+        }`}
+        onClick={!isActive ? () => setActiveIndex(index) : undefined}
+      >
+        <div className="flex flex-col items-center text-center">
+          <span className="testimonial-quote-mark">“</span>
+          <p
+            className={`text-sm md:text-base text-[#F1F6F4] leading-relaxed font-normal ${
+              isActive ? 'opacity-100' : 'opacity-60 line-clamp-4'
+            }`}
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            {item.quote}
+          </p>
+        </div>
+
+        <div className="testimonial-avatar-container">
+          <div className="testimonial-avatar-img">
+            {item.initials}
+          </div>
+          <span
+            className="text-sm font-bold text-[#FFC801]"
+            style={{ fontFamily: "'JetBrains Mono', monospace" }}
+          >
+            {item.author}
+          </span>
+          <span
+            className="text-xs text-[#D9E8E2] opacity-60 uppercase tracking-widest mt-1 text-center"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            {item.role} — {item.company}
+          </span>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <section
@@ -71,7 +131,7 @@ export default function SocialProof() {
     >
       <div className="container relative z-10">
         {/* Header */}
-        <header className="text-center mb-12">
+        <header className="text-center mb-16">
           <p className="eyebrow">// PROOF</p>
           <h2 className="section-heading">
             Trusted by Builders.
@@ -81,77 +141,56 @@ export default function SocialProof() {
           </p>
         </header>
 
-        {/* Testimonial Carousel */}
-        <div className="max-w-4xl mx-auto pt-4">
-          <div
-            className="relative bg-[rgba(23,43,54,0.45)] border border-[rgba(255,200,1,0.12)] rounded-3xl p-8 md:p-12 shadow-2xl transition-all duration-300"
-            onMouseEnter={stopAutoplay}
-            onMouseLeave={startAutoplay}
-          >
-            {/* Inner Content Grid */}
-            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-              {/* Left-side Accent Icon */}
-              <div className="bento-icon-pill bento-icon-pill-gold shrink-0 scale-110">
-                <ChartPieIcon className="w-9 h-9" />
-              </div>
+        {/* 3-Card Testimonials Deck Container */}
+        <div
+          className="relative max-w-6xl mx-auto px-4"
+          onMouseEnter={stopAutoplay}
+          onMouseLeave={startAutoplay}
+        >
+          <div className="testimonial-deck-container">
+            {!isMobile && renderCard(prevIndex, 'prev')}
+            {renderCard(activeIndex, 'active')}
+            {!isMobile && renderCard(nextIndex, 'next')}
+          </div>
 
-              {/* Quote & Author details */}
-              <div className="flex-1 w-full pt-1" key={currentTestimonial.id}>
-                <blockquote>
-                  <p
-                    className="text-lg md:text-xl text-[#F1F6F4] leading-relaxed mb-6 font-medium"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    "{currentTestimonial.quote}"
-                  </p>
-                </blockquote>
-
-                <div className="flex flex-row items-end justify-between w-full mt-4">
-                  {/* Author Name and Metadata on bottom-left */}
-                  <div>
-                    <cite className="not-italic">
-                      <span
-                        className="block text-base font-bold text-[#FFC801]"
-                        style={{ fontFamily: "'JetBrains Mono', monospace" }}
-                      >
-                        {currentTestimonial.author}
-                      </span>
-                      <span
-                        className="block text-xs font-medium text-[#D9E8E2] mt-1 opacity-60 uppercase tracking-wider"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                      >
-                        {currentTestimonial.role} — {currentTestimonial.company}
-                      </span>
-                    </cite>
-                  </div>
-
-                  {/* Navigation Arrows on bottom-right */}
-                  <div className="flex items-center gap-3">
-                    <button
-                      type="button"
-                      onClick={goPrev}
-                      className="p-3.5 rounded-full border border-[rgba(209,232,226,0.12)] text-[#D9E8E2] hover:text-[#FFC801] hover:border-[#FFC801] hover:bg-[rgba(255,200,1,0.06)] transition-all duration-150 cursor-pointer"
-                      aria-label="Previous testimonial"
-                    >
-                      <ChevronLeftIcon className="w-4 h-4" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={goNext}
-                      className="p-3.5 rounded-full border border-[rgba(209,232,226,0.12)] text-[#D9E8E2] hover:text-[#FFC801] hover:border-[#FFC801] hover:bg-[rgba(255,200,1,0.06)] transition-all duration-150 cursor-pointer"
-                      aria-label="Next testimonial"
-                    >
-                      <ChevronRightIcon className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              </div>
+          {/* Navigation Controls */}
+          <div className="flex justify-center items-center gap-4 mt-10">
+            <button
+              type="button"
+              onClick={goPrev}
+              className="p-3 rounded-full border border-[rgba(209,232,226,0.12)] text-[#D9E8E2] hover:text-[#FFC801] hover:border-[#FFC801] hover:bg-[rgba(255,200,1,0.06)] transition-all duration-150 cursor-pointer"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeftIcon className="w-5 h-5" />
+            </button>
+            
+            <div className="flex gap-2">
+              {TESTIMONIALS.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setActiveIndex(i)}
+                  className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                    i === activeIndex ? 'bg-[#FFC801] w-6' : 'bg-[rgba(209,232,226,0.2)]'
+                  }`}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                />
+              ))}
             </div>
+
+            <button
+              type="button"
+              onClick={goNext}
+              className="p-3 rounded-full border border-[rgba(209,232,226,0.12)] text-[#D9E8E2] hover:text-[#FFC801] hover:border-[#FFC801] hover:bg-[rgba(255,200,1,0.06)] transition-all duration-150 cursor-pointer"
+              aria-label="Next testimonial"
+            >
+              <ChevronRightIcon className="w-5 h-5" />
+            </button>
           </div>
         </div>
 
         {/* Logo Trust Bar placed near testimonies */}
-        <div className="mt-16 border-t border-[rgba(209,232,226,0.08)] pt-10">
+        <div className="mt-20 border-t border-[rgba(209,232,226,0.08)] pt-12">
           <TrustBar />
         </div>
       </div>
