@@ -212,6 +212,43 @@ export default function Features() {
               </div>
             </article>
 
+            {/* Logo Centerpiece */}
+            <div
+              className={`col-span-4 flex flex-col justify-center items-center reveal-card ${revealed ? 'revealed' : ''}`}
+              style={{ transitionDelay: '200ms', minHeight: '320px' }}
+            >
+              <div className="flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 text-[#FFC801] mb-4 animate-float flex items-center justify-center">
+                  <CubeIcon className="w-12 h-12" />
+                </div>
+                <span
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontWeight: 600,
+                    fontSize: '24px',
+                    color: '#F1F6F4',
+                    letterSpacing: '0.05em',
+                  }}
+                >
+                  NeuralFlow
+                </span>
+                <span
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                    fontSize: '11px',
+                    color: '#D9E8E2',
+                    opacity: 0.5,
+                    marginTop: '4px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.15em',
+                  }}
+                >
+                  Data Engine
+                </span>
+              </div>
+            </div>
+
             {/* 4. Predictive Intelligence (col-span-4) */}
             <article
               role="listitem"
