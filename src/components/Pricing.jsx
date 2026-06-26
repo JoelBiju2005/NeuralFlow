@@ -161,7 +161,7 @@ export default function Pricing() {
         ref={sectionRef}
         style={{ background: 'transparent', backgroundImage: 'radial-gradient(circle at 50% -20%, rgba(255,200,1,0.05), transparent 70%)', padding: '6rem 0' }}
       >
-        <div className="container relative z-10">
+        <div className="container mx-auto relative z-10">
           {/* Header */}
           <header className="text-center mb-16">
             <p className="eyebrow">// PRICING</p>

@@ -43,11 +43,11 @@ export default function Footer() {
       style={{ background: 'transparent' }}
     >
       {/* CTA Banner */}
-      <div className="container py-16 md:py-20">
-        <div className="relative rounded-2xl border border-[rgba(255,200,1,0.15)] p-8 md:p-12 text-center overflow-hidden"
+      <div className="container mx-auto py-16 md:py-20">
+        <div className="relative rounded-2xl border border-[rgba(255,200,1,0.15)] p-8 md:p-12 pb-12 md:pb-16 text-center"
              style={{ background: 'linear-gradient(135deg, rgba(255,200,1,0.05) 0%, rgba(255,153,50,0.05) 100%)' }}>
           {/* Glow effect */}
-          <div className="absolute inset-0 pointer-events-none"
+          <div className="absolute inset-0 pointer-events-none rounded-2xl"
                style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(255,200,1,0.08), transparent 60%)' }}
                aria-hidden="true" />
 
@@ -86,7 +86,7 @@ export default function Footer() {
       </div>
 
       {/* Footer Grid */}
-      <div className="container pb-12">
+      <div className="container mx-auto pb-12">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">

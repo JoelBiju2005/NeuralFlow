@@ -129,7 +129,7 @@ export default function SocialProof() {
       ref={sectionRef}
       style={{ background: 'transparent', padding: '6rem 0' }}
     >
-      <div className="container relative z-10">
+      <div className="container mx-auto relative z-10">
         {/* Header */}
         <header className="text-center mb-16">
           <p className="eyebrow">// PROOF</p>

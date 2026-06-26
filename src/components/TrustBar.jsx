@@ -10,7 +10,7 @@ export default function TrustBar() {
       className="py-6 border-t border-b border-[rgba(209,232,226,0.08)] relative z-10"
       style={{ background: '#172B36' }}
     >
-      <div className="container flex flex-col items-center justify-center gap-4">
+      <div className="container mx-auto flex flex-col items-center justify-center gap-4">
         <p
           className="text-xs font-normal text-[#D9E8E2] opacity-50 uppercase tracking-widest text-center"
           style={{ fontFamily: "'Inter', sans-serif", letterSpacing: '0.1em' }}

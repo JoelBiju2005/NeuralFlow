@@ -75,7 +75,7 @@ export default function Features() {
         zIndex: 10,
       }}
     >
-      <div className="container relative z-10">
+      <div className="container mx-auto relative z-10">
         {/* Header */}
         <header className="text-center mb-16">
           <h2

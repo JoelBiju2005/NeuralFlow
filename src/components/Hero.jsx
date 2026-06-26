@@ -34,7 +34,7 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container relative z-10 flex flex-col items-center justify-center gap-6">
+      <div className="container mx-auto relative z-10 flex flex-col items-center justify-center gap-6">
         {/* Headline */}
         <h1
           className="hero-headline text-center font-bold"
