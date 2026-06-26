@@ -69,7 +69,7 @@ export default function Features() {
       aria-label="Platform Features"
       ref={sectionRef}
       style={{
-        background: '#114C5A',
+        background: 'transparent',
         padding: '7rem 0',
         position: 'relative',
         zIndex: 10,

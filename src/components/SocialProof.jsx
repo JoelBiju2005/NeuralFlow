@@ -46,7 +46,7 @@ export default function SocialProof() {
       aria-label="Customer Testimonials"
       className="reveal"
       ref={sectionRef}
-      style={{ background: 'rgba(17, 76, 90, 0.85)', padding: '6rem 0' }}
+      style={{ background: 'transparent', padding: '6rem 0' }}
     >
       <div className="container relative z-10">
         {/* Header */}
