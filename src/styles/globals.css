@@ -76,6 +76,7 @@ html {
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
@@ -184,6 +185,7 @@ ul, ol {
   text-transform: uppercase;
   color: var(--color-forsythia);
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 /* Section heading */
@@ -194,6 +196,7 @@ ul, ol {
   line-height: 1.2;
   color: var(--text-primary);
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 @media (max-width: 767px) {
@@ -208,6 +211,9 @@ ul, ol {
   color: var(--text-secondary);
   max-width: 600px;
   line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 /* ============================================================
@@ -582,6 +588,9 @@ ul, ol {
   color: #D9E8E2 !important;
   opacity: 0.8 !important;
   line-height: 1.6 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
 }
 
 /* ============================================================
@@ -737,6 +746,8 @@ ul, ol {
   gap: 24px !important;
   position: relative;
   width: 100%;
+  max-width: 100% !important;
+  overflow: hidden !important;
 }
 
 .testimonial-deck-card {

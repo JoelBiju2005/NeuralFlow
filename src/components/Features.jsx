@@ -75,7 +75,7 @@ export default function Features() {
         zIndex: 10,
       }}
     >
-      <div className="container relative z-10" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+      <div className="container relative z-10">
         {/* Header */}
         <header className="text-center mb-16">
           <h2
@@ -236,10 +236,10 @@ export default function Features() {
               </div>
             </article>
 
-            {/* 5. Graph Data Explorer (col-span-4) */}
+            {/* 5. Graph Data Explorer (col-span-5) */}
             <article
               role="listitem"
-              className={`bento-glass-card col-span-4 p-8 flex flex-col justify-between reveal-card ${revealed ? 'revealed' : ''}`}
+              className={`bento-glass-card col-span-5 p-8 flex flex-col justify-between reveal-card ${revealed ? 'revealed' : ''}`}
               style={{ transitionDelay: '320ms', minHeight: '320px' }}
               onMouseEnter={() => handleBentoHover(4)}
               aria-label="Graph Data Explorer"

@@ -39,7 +39,7 @@ export default function SocialProof() {
   // Check mobile viewport width
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 1024);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -84,7 +84,7 @@ export default function SocialProof() {
       <div
         key={item.id}
         className={`testimonial-deck-card ${
-          isActive ? 'testimonial-deck-card--active' : 'testimonial-deck-card--inactive hidden md:flex'
+          isActive ? 'testimonial-deck-card--active' : 'testimonial-deck-card--inactive hidden lg:flex'
         }`}
         onClick={!isActive ? () => setActiveIndex(index) : undefined}
       >
@@ -143,7 +143,8 @@ export default function SocialProof() {
 
         {/* 3-Card Testimonials Deck Container */}
         <div
-          className="relative max-w-6xl mx-auto px-4"
+          className="relative mx-auto px-4"
+          style={{ maxWidth: '960px' }}
           onMouseEnter={stopAutoplay}
           onMouseLeave={startAutoplay}
         >
@@ -190,7 +191,7 @@ export default function SocialProof() {
         </div>
 
         {/* Logo Trust Bar placed near testimonies */}
-        <div className="mt-20 border-t border-[rgba(209,232,226,0.08)] pt-12">
+        <div className="mt-20 border-t border-[rgba(209,232,226,0.08)] pt-12 text-center">
           <TrustBar />
         </div>
       </div>
